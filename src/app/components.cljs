@@ -32,6 +32,22 @@
     [ui/text {:style {:font-size 30
                       :color color
                       :font-family "Helvetica"}} text]])
+  ([text color bgcolor flex onpress]
+   [ui/touchable-opacity
+    {:style {:align-items "center"
+             :justify-content "center"
+             :display "flex"
+             :text-align "center"
+             :margin 5
+             :width 80
+             :height 80
+             :border-radius 50
+             :background-color bgcolor 
+             :flex flex
+             :on-press onpress}} 
+    [ui/text {:style {:font-size 30
+                      :color color
+                      :font-family "Helvetica"}} text]])
   )
 
 (defn calculatorDisplay [value]
@@ -51,4 +67,5 @@
       (:text button)
       (:color button)
       (:bgcolor button)
-      (:flex button)))])
+      (:flex button)
+      (:onpress button)))])
