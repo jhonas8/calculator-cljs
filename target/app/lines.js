@@ -2,6 +2,7 @@
 goog.provide('app.lines');
 goog.require('cljs.core');
 goog.require('cljs.core');
+goog.require('clojure.string');
 app.lines.clear_display = (function app$lines$clear_display(display){
 return parseFloat(cljs.core.reset_BANG_.call(null,display,"0"));
 });
@@ -13,9 +14,18 @@ return cljs.core.reset_BANG_.call(null,acc,(0));
 return cljs.core.reset_BANG_.call(null,display,"0");
 }
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"+/-",new cljs.core.Keyword(null,"color","color",1011675173),"#000",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#A5A5A5",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-return cljs.core.println.call(null,"pressed");
+if((cljs.core.deref.call(null,display) === "0")){
+return cljs.core.reset_BANG_.call(null,display,"-");
+} else {
+if(clojure.string.includes_QMARK_.call(null,cljs.core.deref.call(null,display),"-")){
+var value = cljs.core.deref.call(null,display);
+return cljs.core.reset_BANG_.call(null,display,clojure.string.replace.call(null,value,"-",""));
+} else {
+return cljs.core.reset_BANG_.call(null,display,["-",cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,display))].join(''));
+}
+}
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"%",new cljs.core.Keyword(null,"color","color",1011675173),"#000",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#A5A5A5",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-return cljs.core.println.call(null,"pressed");
+return cljs.core.reset_BANG_.call(null,display,cljs.core.str.cljs$core$IFn$_invoke$arity$1((parseFloat(cljs.core.deref.call(null,display)) / (100))));
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"/",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#FE9500",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
 if((cljs.core.deref.call(null,acc) === (0))){
 return cljs.core.reset_BANG_.call(null,acc,parseFloat(cljs.core.deref.call(null,display)),app.lines.clear_display.call(null,display));

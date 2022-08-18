@@ -1,12 +1,19 @@
 (ns app.lines
-  (:require [clojure.core]))
+  (:require [clojure.core]
+            [clojure.string :as clstr]))
 
 (defn clear-display [display] (js/parseFloat (reset! display "0")))
 
 (defn firstLine [display, acc]
   [{:text "C" :color "#000" :bgcolor "#A5A5A5" :onpress #(if (identical? @display "0") (reset! acc 0) (reset! display "0"))}
-   {:text "+/-" :color "#000" :bgcolor "#A5A5A5" :onpress #(println "pressed")}
-   {:text "%" :color "#000" :bgcolor "#A5A5A5" :onpress #(println "pressed")}
+   {:text "+/-" :color "#000" :bgcolor "#A5A5A5" :onpress #(if (identical? @display "0")
+                                                            (reset! display "-") 
+                                                            (if (clstr/includes? @display "-")
+                                                             (let [value @display]
+                                                               (reset! display (clstr/replace value "-" "")))
+                                                             (reset! display (str "-" @display))))}
+   {:text "%" :color "#000" :bgcolor "#A5A5A5" :onpress #(reset! display
+                                                                 (str (/ (js/parseFloat @display) 100)))}
    {:text "/" :color "#ffff" :bgcolor "#FE9500" :onpress #(if (== @acc 0)
                                                             (reset! acc (js/parseFloat @display) (clear-display display))
                                                             (if (identical? @display "0")
