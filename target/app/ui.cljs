@@ -5,17 +5,17 @@
 (defn adapt [class]
   (r/adapt-react-class class))
 
-(def view 
+(def view
   (adapt rn/View))
+
+(def scroll-view
+  (adapt rn/ScrollView))
 
 (def text
   (adapt rn/Text))
 
-(def safe-area-view 
+(def safe-area-view
   (adapt rn/SafeAreaView))
-
-(def touchable
-  (adapt rn/Touchable))
 
 (def touchable-opacity
   (adapt rn/TouchableOpacity))

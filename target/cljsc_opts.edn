@@ -1,1 +1,1 @@
-{:output-dir "target", :process-shim false, :target-fn krell.gen/krell-main-js, :target :bundle, :main app.core, :output-to "target/main.js", :aot-cache true}
+{:output-dir "target", :process-shim false, :target-fn krell.gen/krell-main-js, :target :bundle, :verbose true, :main app.core, :output-to "target/main.js", :aot-cache true}

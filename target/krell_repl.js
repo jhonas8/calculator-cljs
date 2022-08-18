@@ -12,7 +12,7 @@ import {
 var CONNECTED = false;
 var RECONNECT_INTERVAL = 3000;
 
-var SERVER_IP = "192.168.0.25";
+var SERVER_IP = "192.168.0.26";
 var SERVER_PORT = krellPortMap ? krellPortMap[DeviceInfo.getDeviceId()] || 5001 : 5001;
 
 const KRELL_VERBOSE = false;

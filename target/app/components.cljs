@@ -27,7 +27,7 @@
              :width 80
              :height 80
              :border-radius 50
-             :background-color bgcolor 
+             :background-color bgcolor
              :flex flex}}
     [ui/text {:style {:font-size 30
                       :color color
@@ -42,30 +42,30 @@
              :width 80
              :height 80
              :border-radius 50
-             :background-color bgcolor 
-             :flex flex
-             :on-press onpress}} 
+             :background-color bgcolor
+             :flex flex}
+     :on-press onpress} 
     [ui/text {:style {:font-size 30
                       :color color
                       :font-family "Helvetica"}} text]])
   )
 
 (defn calculatorDisplay [value]
-  [ui/view {:style {}}
-   [ui/text {:style { 
-                     :font-size 70 
-                     :color "#ffff" 
-                     :text-align "right"
-                     :font-family "helvetica-light-587ebe5a59211"
-                     :padding 20}} value]])
+  [ui/safe-area-view
+   [ui/scroll-view { :horizontal true }
+    [ui/text {:style {:font-size 70
+                      :color "#ffff"
+                      :text-align "right"
+                      :font-family "helvetica-light-587ebe5a59211"
+                      :padding 20}} @value]]])
 
 (defn buttonLine [buttons]
   [ui/view 
    {:style {:display "flex" :flex-direction "row" :justify-content "space-between" :align-items "center"}}
    (for [button buttons]
-     (calculatorButton
-      (:text button)
-      (:color button)
-      (:bgcolor button)
-      (:flex button)
-      (:onpress button)))])
+     ^{:key (:text button)}[calculatorButton
+                            (:text button)
+                            (:color button)
+                            (:bgcolor button)
+                            (:flex button)
+                            (:onpress button)])])

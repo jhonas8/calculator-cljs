@@ -4,4 +4,10 @@
                                        :sha "0fe1c600c9b81180f76b94ef6004c2f85e7d4aa0"}
         reagent/reagent {:mvn/version "0.10.0"
                          :exclusions [cljsjs/react cljsjs/react-dom]}
-        org.clojure/tools.nrepl {:mvn/version "0.2.13"}}}
+        org.clojure/tools.nrepl {:mvn/version "0.2.13"}
+        funcool/cuerdas {:mvn/version "2022.03.27-397"}}
+ :aliases
+ {:compile      {:main-opts ["-m" "krell.main" "-v" "-co" "build.edn" "-c"]}
+  :install-deps {:main-opts ["-m" "cljs.main" "-co" "{:deps-cmd \"yarn\"}" "--install-deps"]}
+  :repl         {:main-opts ["-m" "krell.main" "-co" "build.edn" "-r"]}
+  :extra-repl   {:main-opts ["-m" "krell.main" "-co" "build.edn" "-p" "5002" "-rc" "false" "-r"]}}} 

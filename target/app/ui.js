@@ -7,9 +7,9 @@ app.ui.adapt = (function app$ui$adapt(class$){
 return reagent.core.adapt_react_class.call(null,class$);
 });
 app.ui.view = app.ui.adapt.call(null,app.ui.node$module$react_native.View);
+app.ui.scroll_view = app.ui.adapt.call(null,app.ui.node$module$react_native.ScrollView);
 app.ui.text = app.ui.adapt.call(null,app.ui.node$module$react_native.Text);
 app.ui.safe_area_view = app.ui.adapt.call(null,app.ui.node$module$react_native.SafeAreaView);
-app.ui.touchable = app.ui.adapt.call(null,app.ui.node$module$react_native.Touchable);
 app.ui.touchable_opacity = app.ui.adapt.call(null,app.ui.node$module$react_native.TouchableOpacity);
 
 //# sourceMappingURL=ui.js.map
