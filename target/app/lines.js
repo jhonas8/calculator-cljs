@@ -2,126 +2,54 @@
 goog.provide('app.lines');
 goog.require('cljs.core');
 goog.require('cljs.core');
-goog.require('clojure.string');
-app.lines.clear_display = (function app$lines$clear_display(display){
-return parseFloat(cljs.core.reset_BANG_.call(null,display,"0"));
-});
+goog.require('app.methods$');
 app.lines.firstLine = (function app$lines$firstLine(display,acc){
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"C",new cljs.core.Keyword(null,"color","color",1011675173),"#000",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#A5A5A5",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,acc,(0));
-} else {
-return cljs.core.reset_BANG_.call(null,display,"0");
-}
+return app.methods$.clear.call(null,display,acc);
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"+/-",new cljs.core.Keyword(null,"color","color",1011675173),"#000",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#A5A5A5",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"-");
-} else {
-if(clojure.string.includes_QMARK_.call(null,cljs.core.deref.call(null,display),"-")){
-var value = cljs.core.deref.call(null,display);
-return cljs.core.reset_BANG_.call(null,display,clojure.string.replace.call(null,value,"-",""));
-} else {
-return cljs.core.reset_BANG_.call(null,display,["-",cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,display))].join(''));
-}
-}
+return app.methods$.signal_inversion.call(null,display);
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"%",new cljs.core.Keyword(null,"color","color",1011675173),"#000",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#A5A5A5",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-return cljs.core.reset_BANG_.call(null,display,cljs.core.str.cljs$core$IFn$_invoke$arity$1((parseFloat(cljs.core.deref.call(null,display)) / (100))));
+return app.methods$.percentage.call(null,display);
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"/",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#FE9500",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,acc) === (0))){
-return cljs.core.reset_BANG_.call(null,acc,parseFloat(cljs.core.deref.call(null,display)),app.lines.clear_display.call(null,display));
-} else {
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"Can't divide by 0");
-} else {
-return cljs.core.reset_BANG_.call(null,acc,(cljs.core.deref.call(null,acc) / parseFloat(cljs.core.deref.call(null,display))),app.lines.clear_display.call(null,display));
-}
-}
+return app.methods$.division.call(null,display,acc);
 })], null)], null);
 });
 app.lines.secondLine = (function app$lines$secondLine(display,acc){
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"7",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"7");
-} else {
-return cljs.core.swap_BANG_.call(null,display,cljs.core._PLUS_,"7");
-}
+return app.methods$.enter_value.call(null,display,(7));
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"8",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"8");
-} else {
-return cljs.core.swap_BANG_.call(null,display,cljs.core._PLUS_,"8");
-}
+return app.methods$.enter_value.call(null,display,(8));
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"9",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"9");
-} else {
-return cljs.core.swap_BANG_.call(null,display,cljs.core._PLUS_,"9");
-}
+return app.methods$.enter_value.call(null,display,(9));
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"x",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#FE9500",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,acc) === (0))){
-return cljs.core.reset_BANG_.call(null,acc,parseFloat(cljs.core.deref.call(null,display)),app.lines.clear_display.call(null,display));
-} else {
-return cljs.core.swap_BANG_.call(null,acc,cljs.core._STAR_,parseFloat(cljs.core.deref.call(null,display)),((1) + app.lines.clear_display.call(null,display)));
-}
+return app.methods$.multiplication.call(null,display,acc);
 })], null)], null);
 });
 app.lines.thirdLine = (function app$lines$thirdLine(display,acc){
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"4",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"4");
-} else {
-return cljs.core.swap_BANG_.call(null,display,cljs.core._PLUS_,"4");
-}
+return app.methods$.enter_value.call(null,display,(4));
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"5",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"5");
-} else {
-return cljs.core.swap_BANG_.call(null,display,cljs.core._PLUS_,"5");
-}
+return app.methods$.enter_value.call(null,display,(5));
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"6",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"6");
-} else {
-return cljs.core.swap_BANG_.call(null,display,cljs.core._PLUS_,"6");
-}
+return app.methods$.enter_value.call(null,display,(6));
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"-",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#FE9500",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,acc) === (0))){
-return cljs.core.reset_BANG_.call(null,acc,parseFloat(cljs.core.deref.call(null,display)),app.lines.clear_display.call(null,display));
-} else {
-return cljs.core.swap_BANG_.call(null,acc,cljs.core._,parseFloat(cljs.core.deref.call(null,display)),app.lines.clear_display.call(null,display));
-}
+return app.methods$.subtraction.call(null,display,acc);
 })], null)], null);
 });
 app.lines.fourthLine = (function app$lines$fourthLine(display,acc){
-return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"3",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"3");
-} else {
-return cljs.core.swap_BANG_.call(null,display,cljs.core._PLUS_,"3");
-}
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"1",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
+return app.methods$.enter_value.call(null,display,(1));
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"2",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"2");
-} else {
-return cljs.core.swap_BANG_.call(null,display,cljs.core._PLUS_,"2");
-}
-})], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"1",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"1");
-} else {
-return cljs.core.swap_BANG_.call(null,display,cljs.core._PLUS_,"1");
-}
+return app.methods$.enter_value.call(null,display,(2));
+})], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"3",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
+return app.methods$.enter_value.call(null,display,(3));
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"+",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#FE9500",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-return cljs.core.swap_BANG_.call(null,acc,cljs.core._PLUS_,parseFloat(cljs.core.deref.call(null,display)),app.lines.clear_display.call(null,display));
+return app.methods$.addition.call(null,display,acc);
 })], null)], null);
 });
 app.lines.fifthLine = (function app$lines$fifthLine(display,acc){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"text","text",-1790561697),"0",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"flex","flex",-1425124628),(2),new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
-if((cljs.core.deref.call(null,display) === "0")){
-return cljs.core.reset_BANG_.call(null,display,"0");
-} else {
-return cljs.core.swap_BANG_.call(null,display,cljs.core._PLUS_,"0");
-}
+return app.methods$.enter_value.call(null,display,(0));
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),".",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#333333",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){
 return cljs.core.swap_BANG_.call(null,display,cljs.core._PLUS_,".");
 })], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"text","text",-1790561697),"=",new cljs.core.Keyword(null,"color","color",1011675173),"#ffff",new cljs.core.Keyword(null,"bgcolor","bgcolor",1996633770),"#FE9500",new cljs.core.Keyword(null,"onpress","onpress",-1107055862),(function (){

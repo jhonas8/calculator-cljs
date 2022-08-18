@@ -7,8 +7,7 @@
 
 (defn app []
   (let [display-value (r/atom "0")]
-    (let [remainingValue (r/atom 0.0)]
-      (set-validator! remainingValue #(number? %))
+    (let [remainingValue (r/atom 0)]
       [ui/safe-area-view {:style {:background-color "#000"
                                   :height "100%"
                                   :width "100%"

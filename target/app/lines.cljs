@@ -1,28 +1,28 @@
 (ns app.lines
-  (:require [reagent.core :as r]
-            [cuerdas.core :as str]))
+  (:require [clojure.core]
+            [app.methods :as m]))
 
 (defn firstLine [display, acc]
-  [{:text "C" :color "#000" :bgcolor "#A5A5A5" :onpress #(reset! display "0" (reset! acc 0))}
-   {:text "+/-" :color "#000" :bgcolor "#A5A5A5" :onpress #(println "pressed")}
-   {:text "%" :color "#000" :bgcolor "#A5A5A5" :onpress #(println "pressed")}
-   {:text "/" :color "#ffff" :bgcolor "#FE9500" :onpress #(println "pressed")}])
+  [{:text "C" :color "#000" :bgcolor "#A5A5A5" :onpress #(m/clear display acc)}
+   {:text "+/-" :color "#000" :bgcolor "#A5A5A5" :onpress #(m/signal-inversion display)}
+   {:text "%" :color "#000" :bgcolor "#A5A5A5" :onpress #(m/percentage display)}
+   {:text "/" :color "#ffff" :bgcolor "#FE9500" :onpress #(m/division display acc)}])
 (defn secondLine [display, acc]
-  [{:text "7" :color "#ffff" :bgcolor "#333333" :onpress #(if (identical? @display "0") (reset! display "7") (swap! display + "7"))}
-   {:text "8" :color "#ffff" :bgcolor "#333333" :onpress #(if (identical? @display "0") (reset! display "8") (swap! display + "8"))}
-   {:text "9" :color "#ffff" :bgcolor "#333333" :onpress #(if (identical? @display "0") (reset! display "9") (swap! display + "9"))}
-   {:text "x" :color "#ffff" :bgcolor "#FE9500" :onpress #(println "pressed")}]) 
+  [{:text "7" :color "#ffff" :bgcolor "#333333" :onpress #(m/enter-value display 7)}
+   {:text "8" :color "#ffff" :bgcolor "#333333" :onpress #(m/enter-value display 8)}
+   {:text "9" :color "#ffff" :bgcolor "#333333" :onpress #(m/enter-value display 9)}
+   {:text "x" :color "#ffff" :bgcolor "#FE9500" :onpress #(m/multiplication display acc)}])
 (defn thirdLine [display, acc]
-  [{:text "4" :color "#ffff" :bgcolor "#333333" :onpress #(if (identical? @display "0") (reset! display "4") (swap! display + "4"))}
-   {:text "5" :color "#ffff" :bgcolor "#333333" :onpress #(if (identical? @display "0") (reset! display "5") (swap! display + "5"))}
-   {:text "6" :color "#ffff" :bgcolor "#333333" :onpress #(if (identical? @display "0") (reset! display "6") (swap! display + "6"))}
-   {:text "-" :color "#ffff" :bgcolor "#FE9500" :onpress #(println "pressed")}])
+  [{:text "4" :color "#ffff" :bgcolor "#333333" :onpress #(m/enter-value display 4)}
+   {:text "5" :color "#ffff" :bgcolor "#333333" :onpress #(m/enter-value display 5)}
+   {:text "6" :color "#ffff" :bgcolor "#333333" :onpress #(m/enter-value display 6)}
+   {:text "-" :color "#ffff" :bgcolor "#FE9500" :onpress #(m/subtraction display acc)}])
 (defn fourthLine [display, acc]
-  [{:text "3" :color "#ffff" :bgcolor "#333333" :onpress #(if (identical? @display "0") (reset! display "3") (swap! display + "3"))}
-   {:text "2" :color "#ffff" :bgcolor "#333333" :onpress #(if (identical? @display "0") (reset! display "2") (swap! display + "2"))}
-   {:text "1" :color "#ffff" :bgcolor "#333333" :onpress #(if (identical? @display "0") (reset! display "1") (swap! display + "1"))}
-   {:text "+" :color "#ffff" :bgcolor "#FE9500" :onpress #(swap! acc + 1.1)}])
+  [{:text "1" :color "#ffff" :bgcolor "#333333" :onpress #(m/enter-value display 1)}
+   {:text "2" :color "#ffff" :bgcolor "#333333" :onpress #(m/enter-value display 2)}
+   {:text "3" :color "#ffff" :bgcolor "#333333" :onpress #(m/enter-value display 3)}
+   {:text "+" :color "#ffff" :bgcolor "#FE9500" :onpress #(m/addition display acc)}])
 (defn fifthLine [display, acc]
-  [{:text "0" :color "#ffff" :bgcolor "#333333" :flex 2 :onpress #(if (identical? @display "0") (reset! display "0") (swap! display + "0"))}
-   {:text "." :color "#ffff" :bgcolor "#333333" :onpress #(swap! display +".")}
+  [{:text "0" :color "#ffff" :bgcolor "#333333" :flex 2 :onpress #(m/enter-value display 0)}
+   {:text "." :color "#ffff" :bgcolor "#333333" :onpress #(swap! display + ".")}
    {:text "=" :color "#ffff" :bgcolor "#FE9500" :onpress #(reset! display (str @acc))}])

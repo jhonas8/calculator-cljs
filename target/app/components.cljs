@@ -52,7 +52,7 @@
 
 (defn calculatorDisplay [value]
   [ui/safe-area-view
-   [ui/scroll-view { :horizontal true }
+   [ui/view { :horizontal true }
     [ui/text {:style {:font-size 70
                       :color "#ffff"
                       :text-align "right"

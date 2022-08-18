@@ -51,15 +51,6 @@ goog.addDependency("../reagent/dom.js", ['reagent.dom'], ['reagent.impl.util', '
 goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util', 'reagent.ratom', 'cljs.core', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug', 'reagent.dom']);
 goog.addDependency("../app/ui.js", ['app.ui'], ['reagent.core', 'cljs.core']);
 goog.addDependency("../app/components.js", ['app.components'], ['reagent.core', 'cljs.core', 'app.ui']);
-goog.addDependency("../cljs/tools/reader/impl/utils.js", ['cljs.tools.reader.impl.utils'], ['goog.string', 'cljs.core', 'clojure.string']);
-goog.addDependency("../cljs/tools/reader/reader_types.js", ['cljs.tools.reader.reader_types'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer', 'cljs.tools.reader.impl.utils']);
-goog.addDependency("../cljs/tools/reader/impl/inspect.js", ['cljs.tools.reader.impl.inspect'], ['cljs.core']);
-goog.addDependency("../cljs/tools/reader/impl/errors.js", ['cljs.tools.reader.impl.errors'], ['cljs.core', 'cljs.tools.reader.reader_types', 'cljs.tools.reader.impl.inspect', 'clojure.string']);
-goog.addDependency("../cljs/tools/reader/impl/commons.js", ['cljs.tools.reader.impl.commons'], ['cljs.tools.reader.impl.errors', 'cljs.core', 'cljs.tools.reader.reader_types', 'cljs.tools.reader.impl.utils']);
-goog.addDependency("../cljs/tools/reader.js", ['cljs.tools.reader'], ['cljs.tools.reader.impl.commons', 'goog.string', 'cljs.tools.reader.impl.errors', 'cljs.core', 'cljs.tools.reader.reader_types', 'goog.string.StringBuffer', 'cljs.tools.reader.impl.utils', 'goog.array']);
-goog.addDependency("../cljs/tools/reader/edn.js", ['cljs.tools.reader.edn'], ['cljs.tools.reader.impl.commons', 'cljs.tools.reader', 'goog.string', 'cljs.tools.reader.impl.errors', 'cljs.core', 'cljs.tools.reader.reader_types', 'goog.string.StringBuffer', 'cljs.tools.reader.impl.utils']);
-goog.addDependency("../cljs/reader.js", ['cljs.reader'], ['cljs.tools.reader.edn', 'cljs.tools.reader', 'cljs.core', 'goog.object', 'goog.string.StringBuffer']);
-goog.addDependency("../cuerdas/regexp.js", ['cuerdas.regexp'], ['goog.string', 'cljs.core']);
-goog.addDependency("../cuerdas/core.js", ['cuerdas.core'], ['goog.string', 'cljs.core', 'clojure.set', 'clojure.string', 'cljs.reader', 'clojure.walk', 'cuerdas.regexp']);
-goog.addDependency("../app/lines.js", ['app.lines'], ['reagent.core', 'cljs.core', 'cuerdas.core']);
+goog.addDependency("../app/methods.js", ['app.methods$'], ['cljs.core', 'clojure.string']);
+goog.addDependency("../app/lines.js", ['app.lines'], ['cljs.core', 'app.methods$']);
 goog.addDependency("../app/core.js", ['app.core'], ['app.components', 'reagent.core', 'cljs.core', 'app.lines', 'app.ui', 'clojure.string']);
